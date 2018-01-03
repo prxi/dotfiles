@@ -1,0 +1,125 @@
+#
+# wm independent hotkeys
+#
+
+# terminal emulator
+mod2 + Return
+	urxvt
+
+# program launcher
+mod2 + d
+	dmenu_run -b -p ">"
+
+# make sxhkd reload its configuration files:
+mod2 + Escape
+	pkill -USR1 -x sxhkd
+
+#
+# bspwm hotkeys
+#
+
+# quit bspwm normally
+mod2 + alt + Escape
+	bspc quit
+
+# close and kill
+mod2 + {_,shift + }w
+	bspc node -{c,k}
+
+# alternate between the tiled and monocle layout
+mod2 + m
+	bspc desktop -l next
+
+# if the current node is automatic, send it to the last manual, otherwise pull the last leaf
+mod2 + y
+	bspc query -N -n focused.automatic && bspc node -n last.!automatic || bspc node last.leaf -n focused
+
+# swap the current node and the biggest node
+mod2 + g
+	bspc node -s biggest
+
+#
+# state/flags
+#
+
+# set the window state
+mod2 + {t,shift + t,s}
+	bspc node -t {tiled,pseudo_tiled,floating}
+
+# set the node flags
+mod2 + ctrl + {x,y,z}
+	bspc node -g {locked,sticky,private}
+
+#
+# focus/swap
+#
+
+# focus the node in the given direction
+mod2 + {_,shift + }{h,j,k,l}
+	bspc node -{f,s} {west,south,north,east}
+
+# focus the node for the given path jump
+mod2 + {p,b,comma,period}
+	bspc node -f @{parent,brother,first,second}
+
+# focus the next/previous node in the current desktop
+mod2 + {_,shift + }c
+	bspc node -f {next,prev}.local
+
+# focus the next/previous desktop in the current monitor
+mod2 + bracket{left,right}
+	bspc desktop -f {prev,next}.local
+
+# focus the last node/desktop
+mod2 + {grave,Tab}
+	bspc {node,desktop} -f last
+
+# focus the older or newer node in the focus history
+mod2 + {o,i}
+	bspc wm -h off; \
+	bspc node {older,newer} -f; \
+	bspc wm -h on
+
+# focus or send to the given desktop
+mod2 + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,10}'
+
+#
+# preselect
+#
+
+# preselect the direction
+mod2 + ctrl + {h,j,k,l}
+	bspc node -p {west,south,north,east}
+
+# preselect the ratio
+mod2 + ctrl + {1-9}
+	bspc node -o 0.{1-9}
+
+# cancel the preselection for the focused node
+mod2 + ctrl + space
+	bspc node -p cancel
+
+# cancel the preselection for the focused desktop
+mod2 + ctrl + shift + space
+	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+
+#
+# move/resize
+#
+
+# expand a window by moving one of its side outward
+mod2 + ctrl + shift + {a,s,d,f}
+	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+# contract a window by moving one of its side inward
+mod2 + ctrl + shift + {h,j,k,l}
+	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+# move a floating window
+mod2 + {Left,Down,Up,Right}
+	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+# move a floating window
+mod2 + ctrl + {Left,Down,Up,Right}
+	bspc node -v {-5 0,0 5,0 -5,5 0}
