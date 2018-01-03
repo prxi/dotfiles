@@ -8,7 +8,7 @@ mod2 + Return
 
 # program launcher
 mod2 + d
-	dmenu_run -b -p ">"
+	rofi -show run
 
 # make sxhkd reload its configuration files:
 mod2 + Escape
