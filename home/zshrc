@@ -1,4 +1,4 @@
-PS1='%B%F{black}───%B%F{blue}── %f'
+PS1='%B%F{black}──── %f'
 
 autoload -U colors compinit
 colors

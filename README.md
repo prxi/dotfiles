@@ -1,3 +1,3 @@
 TODO: Create bootstrap / Simplify configuration files
 
-C > 0x03
+C > 0x04
