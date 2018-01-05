@@ -1,4 +1,8 @@
-PS1='%B%F{black}──── %f'
+if [ "$(whoami)" = "root" ];then
+	PS1='%B%F{red}──── %f'
+  else
+	PS1='%B%F{black}──── %f'
+fi 
 
 autoload -U colors compinit
 colors

@@ -1,3 +1,3 @@
-TODO: Create bootstrap / Simplify configuration files
+Simplified configuration files
 
-C > 0x5
+C > 0x6

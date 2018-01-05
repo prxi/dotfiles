@@ -3,7 +3,6 @@ URxvt*scrollBar:		false
 URxvt*termName:			rxvt-256color
 URxvt*imLocale:			en_US.UTF-8
 
-
 Xft.dpi:			90
 Xft.autohint:			0
 Xft.lcdfilter:			lcddefault
@@ -16,4 +15,4 @@ URxvt.font: xft:tewi:pixelsize=9
 URxvt.boldFont:
 
 ! colors
-#include "/Users/prxy/.colors/DEAD.xresources"
+#include "/Users/prxy/.colors/DEFAULT.xresources"

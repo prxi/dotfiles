@@ -109,7 +109,7 @@ mod2 + ctrl + shift + space
 #
 
 # expand a window by moving one of its side outward
-mod2 + ctrl + shift + {a,s,d,f}
+mod2 + ctrl + {a,s,d,f}
 	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
 
 # contract a window by moving one of its side inward
