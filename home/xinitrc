@@ -1,6 +1,4 @@
 #!/bin/bash
-cd $HOME
-
 xset +fp ~/.fonts
 xset fp rehash
 
