@@ -1,3 +1,3 @@
 Simplified configuration files
 
-C > 0x8
+C > 1x0
